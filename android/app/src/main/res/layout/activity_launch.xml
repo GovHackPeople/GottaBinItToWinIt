@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_launch_vertical_margin"
-    android:background="@color/colorPrimary"
+    android:background="@color/colorLauncherBackground"
     tools:context=".LaunchActivity"
     android:orientation="vertical">
 
