@@ -48,7 +48,9 @@ public class LaunchActivity extends AppCompatActivity implements
             public void run() {
                 if (mAuth.getCurrentUser() != null) {
                     // Launch MainActivity if already signed in
-                    launchMainActivity();
+                    Intent i = new Intent(LaunchActivity.this, MainActivity.class);
+                    startActivity(i);
+                    finish();
                 } else {
                     // User not signed in, setup Google sign in button
                     setupGoogleAuth();
@@ -58,19 +60,12 @@ public class LaunchActivity extends AppCompatActivity implements
         }, LAUNCH_DELAY);
     }
 
-    private void launchMainActivity() {
-        Intent i = new Intent(LaunchActivity.this, MainActivity.class);
-        startActivity(i);
-        finish();
-    }
-
     private void showGoogleSignInButton() {
         View googleSignInButton = findViewById(R.id.google_sign_in_button);
         googleSignInButton.setVisibility(View.VISIBLE);
         googleSignInButton.setOnClickListener(this);
         googleSignInButton.startAnimation(AnimationUtils.loadAnimation(this, R.anim.fade_in));
     }
-
 
     private void googleSignIn() {
         Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
@@ -88,7 +83,10 @@ public class LaunchActivity extends AppCompatActivity implements
                 // Google auth successful, pass to Firebase auth
                 GoogleSignInAccount account = result.getSignInAccount();
                 firebaseAuthWithGoogle(account);
-                launchMainActivity();
+                // New login, launch SetupActivity
+                Intent i = new Intent(this, SetupActivity.class);
+                startActivity(i);
+                finish();
             } else {
                 // Google login failed
                 Toast.makeText(this, "Unable to sign in to Google.", Toast.LENGTH_SHORT).show();
