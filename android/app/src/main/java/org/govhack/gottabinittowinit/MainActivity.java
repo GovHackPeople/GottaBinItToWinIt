@@ -34,15 +34,14 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
 
         // Process GEOJson data and determine where address is located in the city
-        try {
+        /*try {
             InputStream is = getResources().openRawResource(R.raw.melbourne_garbage_collection);
-            GeoJSONObject data = GeoJSON.parse(is);
-            data.
+            // GeoJSONObject data = GeoJSON.parse(is);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (JSONException e) {
             e.printStackTrace();
-        }
+        }*/
 
 
 

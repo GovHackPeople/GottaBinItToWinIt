@@ -3,4 +3,6 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="more_days">More Days</string>
+    <string name="until_bin_day">until you need to take out your bins</string>
 </resources>

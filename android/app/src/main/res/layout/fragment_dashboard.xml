@@ -4,10 +4,54 @@
     android:layout_height="match_parent"
     tools:context="org.govhack.gottabinittowinit.fragments.DashboardFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/gratuitousCircle"
+            android:background="@color/colorPrimaryDark">
+
+            <ImageView
+                android:layout_centerHorizontal="true"
+                android:padding="50dp"
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:src="@drawable/circle"
+                android:id="@+id/circle"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:textColor="@color/colorPrimary"
+                android:id="@+id/daysLeft"
+                android:textSize="180sp"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/gratuitousCircle"
+            android:textAlignment="center"
+            android:text="@string/more_days"
+            android:id="@+id/more_days"
+            android:textSize="60sp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:layout_below="@+id/more_days"
+            android:text="@string/until_bin_day"
+            android:textSize="30sp"
+            />
+
+    </RelativeLayout>
 
 </FrameLayout>
