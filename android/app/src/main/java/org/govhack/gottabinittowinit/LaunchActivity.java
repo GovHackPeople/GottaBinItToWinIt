@@ -1,6 +1,7 @@
 package org.govhack.gottabinittowinit;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -47,9 +48,19 @@ public class LaunchActivity extends AppCompatActivity implements
             @Override
             public void run() {
                 if (mAuth.getCurrentUser() != null) {
-                    // Launch MainActivity if already signed in
-                    Intent i = new Intent(LaunchActivity.this, MainActivity.class);
-                    startActivity(i);
+                    // User is signed in
+                    // Check if user has setup location, if not launch setup activity
+                    SharedPreferences prefs = getSharedPreferences(Constants.PREFERENCES_ID, 0);
+                    boolean hasSetupAddress = prefs.getBoolean(Constants.PREFERENCES_KEY_ADDRESS_SETUP, false);
+
+                    Intent intent;
+                    if (!hasSetupAddress) {
+                        intent = new Intent(LaunchActivity.this, SetupActivity.class);
+                    } else {
+                        // Launch MainActivity if already signed in and setup address
+                        intent = new Intent(LaunchActivity.this, MainActivity.class);
+                    }
+                    startActivity(intent);
                     finish();
                 } else {
                     // User not signed in, setup Google sign in button

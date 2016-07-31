@@ -24,7 +24,16 @@
         <activity android:name=".AchievementsActivity" />
         <activity android:name=".HelpActivity" />
         <activity android:name=".SettingsActivity" />
-        <activity android:name=".SetupActivity"></activity>
+        <activity android:name=".SetupActivity" android:label="Enter your address"></activity>
+
+        <!-- Google Play Services -->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <!-- Google Maps API Key -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="YOUR_API_KEY"/>
     </application>
 
 </manifest>

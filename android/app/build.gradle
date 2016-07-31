@@ -31,11 +31,15 @@ dependencies {
 
     // Google Play services
     compile 'com.google.android.gms:play-services-auth:9.2.1'
+    compile 'com.google.android.gms:play-services-location:9.2.1'
+    compile 'com.google.android.gms:play-services-maps:9.2.1'
 
     // Firebase libraries
     compile 'com.google.firebase:firebase-core:9.2.1'
     compile 'com.google.firebase:firebase-auth:9.2.1'
 
+    // Permissions library
+    compile 'pub.devrel:easypermissions:0.1.9'
 }
 
 apply plugin: 'com.google.gms.google-services'
