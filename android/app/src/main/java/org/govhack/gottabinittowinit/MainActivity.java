@@ -12,9 +12,15 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import com.cocoahero.android.geojson.GeoJSON;
+import com.cocoahero.android.geojson.GeoJSONObject;
+
 import org.govhack.gottabinittowinit.fragments.DashboardFragment;
 import org.govhack.gottabinittowinit.fragments.GalleryFragment;
+import org.json.JSONException;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,6 +32,19 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Process GEOJson data and determine where address is located in the city
+        try {
+            InputStream is = getResources().openRawResource(R.raw.melbourne_garbage_collection);
+            GeoJSONObject data = GeoJSON.parse(is);
+            data.
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+
 
         setupToolbar();
         setupViewPager();

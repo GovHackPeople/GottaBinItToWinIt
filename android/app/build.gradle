@@ -41,6 +41,9 @@ dependencies {
 
     // Permissions library
     compile 'pub.devrel:easypermissions:0.1.9'
+
+    // GeoJSON parsing library
+    compile 'com.cocoahero.android:geojson:1.0.1@jar'
 }
 
 apply plugin: 'com.google.gms.google-services'
