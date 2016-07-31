@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.Auth;
@@ -51,10 +52,10 @@ public class LaunchActivity extends AppCompatActivity implements
                     // User is signed in
                     // Check if user has setup location, if not launch setup activity
                     SharedPreferences prefs = getSharedPreferences(Constants.PREFERENCES_ID, 0);
-                    boolean hasSetupAddress = prefs.getBoolean(Constants.PREFERENCES_KEY_ADDRESS_SETUP, false);
+                    String hasSetupAddress = prefs.getString(Constants.PREFERENCES_KEY_ADDRESS_SETUP, null);
 
                     Intent intent;
-                    if (!hasSetupAddress) {
+                    if (hasSetupAddress == null) {
                         intent = new Intent(LaunchActivity.this, SetupActivity.class);
                     } else {
                         // Launch MainActivity if already signed in and setup address
@@ -132,6 +133,7 @@ public class LaunchActivity extends AppCompatActivity implements
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
     }
+
 
     @Override
     public void onClick(View view) {
